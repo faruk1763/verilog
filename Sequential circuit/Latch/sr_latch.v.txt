@@ -1,0 +1,35 @@
+module sr_latch(input s,r,en,output reg q,qbar);
+always @(*)
+begin
+if(en)
+begin
+ if(s&r)
+   q=1'bx;
+  else if(s)
+    q=1'b1;
+   else if(r)
+    q=1'b0;
+end
+qbar=~q;
+
+end
+endmodule
+
+
+module sr_tb;
+reg s,r,en;
+wire q,qbar;
+
+ sr_latch dut(.s(s),.r(r),.en(en),.q(q),.qbar(qbar));
+initial begin
+
+$monitor("time=%0t;s=%b,r=%b,en=%b,q=%b,qbar=%b",$time,s,r,en,q,qbar);
+#5;en=0 ;s=0;r=0;
+#5;en=1;s=0;r=1;
+#5;en=1;s=1;r=0;
+
+$finish;
+end
+
+endmodule
+ 
