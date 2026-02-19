@@ -8,13 +8,15 @@ asy_down_counter uut (
     .q(q)
   );
 always #5 clk = ~clk;
-  initial begin
-   
-    #10;clk = 1;
-    #10;rst = 0;
-      #20;clk=0;
-    #20 rst = 1;
-    #40 $finish;
+initial begin
+    
+  #5;  clk = 0;
+   #5; rst = 1;
+  #5;clk=1;
+    #20 ;rst = 0;
+ 
+    
+    #200 $finish;
   end
   initial begin
     $monitor("Time=%0t | rst=%b | q[1]q[0]=%b (%0d)", $time, rst, q, q);
@@ -22,7 +24,7 @@ always #5 clk = ~clk;
   
  initial begin
    $dumpfile("a.vcd");  
-        $dumpvars(0,asy_up_counter_tb);
+   $dumpvars(0,asy_down_counter_tb);
     end
   
 endmodule
