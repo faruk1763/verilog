@@ -6,7 +6,7 @@ begin
   else
     q[0]<=~q[0];
 end
-    always@(posedge q[0]or posedge rst)
+  always@(negedge q[0]or posedge rst)
     begin
       if(rst)
         q[1]<=0;
