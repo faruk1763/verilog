@@ -1,4 +1,4 @@
-module asy_down_counter(input clk,rst,output reg [1:0]q);
+module asy_up_counter(input clk,rst,output reg [1:0]q);
   always@(posedge clk or posedge rst)
 begin
   if(rst)
