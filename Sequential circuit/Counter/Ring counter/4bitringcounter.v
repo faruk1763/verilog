@@ -1,5 +1,6 @@
 module ring(input clk,rst,output [3:0]q);
-  always@(posedge clk or rst);
+  always@(posedge clk or rst)
+    begin
   if(rst)
     q<=4'b0001;
   else
