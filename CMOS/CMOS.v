@@ -1,3 +1,4 @@
+using switch level
 
 module cmoss(input a,b,output out);
   supply1 vdd;
@@ -7,4 +8,9 @@ module cmoss(input a,b,output out);
   pmos(out,vdd,b);
   nmos(out,w1,a);
   nmos(w1,gnd,b);
+endmodule
+
+using gate level
+module cmoss(input a,b,output out);
+  nand g1(out,a,b);
 endmodule
