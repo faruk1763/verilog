@@ -4,5 +4,7 @@ always @(posedge clk or posedge rst) begin
         pout <= 0;
     else if (load)
         pout <= pin;
+    else
+        pout<=pout;
 end
 endmodule
