@@ -5,8 +5,8 @@ always @(posedge clk) begin
         sout <= 0;
     end
     else if (load) begin
-        sout <= q[0];             
-        q <= {sin, q[n-1:1]};
+    sout <= q[n-1];
+    q <= {q[n-2:0], sin};
    end
     end
 endmodule
